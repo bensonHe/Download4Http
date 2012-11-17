@@ -1,7 +1,7 @@
 Download4Http
 =============
 
-it is a download software.I try to coding it  use java.
+it is a download software.I try to coding it  use java. now have finnish like below
 
 1. support divide download file to be many parts . muti-thread to download it.
 2. support pause download and recovery download 
