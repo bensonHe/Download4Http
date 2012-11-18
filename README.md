@@ -20,7 +20,8 @@ test project step
 if you have success to run this project .some log will be output in console like below.
 
 and in you D:\Download will have a MP3 file what name is10554229133200.mp3 
-============
+
+
 10554229133200.mp3
 10554229133200.mp3
 10554229133200.mp3
@@ -38,7 +39,7 @@ now have download 80%
 Thread 1353253836132 complete
 now have download 100%
 Thread 1353253836132 complete
-==================================
+
 
 I hope this program will be useful . so I will try to complete it step by step.
 
@@ -48,7 +49,7 @@ if have any question. please connect to me .
 
 thanks very much
 
-benson he (ºÎ½õ±ò)
+benson he (ä½•é”¦å½¬)
 
 email, qing878@gmail.com
 QQ, 277803242
