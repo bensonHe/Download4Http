@@ -11,7 +11,11 @@ import org.he.dto.DonwloadInfor;
 import org.he.listener.DownloadStatus;
 import org.he.util.DLog;
 
-//use Serializable for save object in the file
+/**
+ * @author BenSon He
+ * @email qing878@gmail.com ,qq 277803242
+ * @since 19/11/2012
+ */
 public class DownLoadProcess extends Thread {
 	private DonwloadInfor donwloadInfor = null;
 	private URLConnection connection = null;

@@ -17,8 +17,9 @@ import java.net.UnknownHostException;
 import org.he.util.DLog;
 
 /**
- * 
- * @author BenHe get url resouce
+ * @author BenSon He
+ * @email qing878@gmail.com ,qq 277803242
+ * @since 19/11/2012
  */
 public class Resource {
 	private String urlAdress = null;
@@ -32,9 +33,13 @@ public class Resource {
 		URL url;
 		try {
 			url = new URL(urlAdress);
-			SocketAddress sa = new Socket("10.224.10.252", 808)
-					.getRemoteSocketAddress();
-			Proxy poxy = new Proxy(Proxy.Type.HTTP, sa);
+			/**
+			 * if you company have to use poxy to connect Internet. add below code
+//			SocketAddress sa = new Socket("10.224.10.252", 808)
+//					.getRemoteSocketAddress();
+//			Proxy poxy = new Proxy(Proxy.Type.HTTP, sa);
+ *  **/
+//			URLConnection con = url.openConnection();
 			URLConnection con = url.openConnection();
 			con.setConnectTimeout(60*1000);
 			con.setReadTimeout(60*1000);

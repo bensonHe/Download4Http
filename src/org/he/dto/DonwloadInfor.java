@@ -2,7 +2,11 @@ package org.he.dto;
 
 import java.io.Serializable;
 import java.net.URLConnection;
-
+/**
+ * @author BenSon He
+ * @email qing878@gmail.com ,qq 277803242
+ * @since 19/11/2012
+ */
 public class DonwloadInfor implements Serializable {
 	private int bufferSize = 1024 * 1024 * 5; // default value 5M
 	private long totalSize = 0;

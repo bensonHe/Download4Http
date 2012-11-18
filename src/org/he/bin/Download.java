@@ -1,8 +1,14 @@
 package org.he.bin;
+
 import java.net.URLConnection;
 import org.he.dto.DonwloadInfor;
 import org.he.listener.DownloadStatus;
 
+/**
+ * @author BenSon He
+ * @email qing878@gmail.com ,qq 277803242
+ * @since 19/11/2012
+ */
 public class Download {
 	private String downloadPath = null;
 	private String downlowdURLAdr = null;
@@ -10,7 +16,6 @@ public class Download {
 	private URLConnection connect = null;
 	private String downLoadFileName = null;
 	private int threadCount = 5;
-	private String tempName = "temp_%s.task";
 	private DownloadStatus downloadSt;
 
 	public String getDownloadLocalPath() {
@@ -25,17 +30,10 @@ public class Download {
 
 	public String getDownlowdURLAdr() {
 		if (downlowdURLAdr == null)
-			downlowdURLAdr = "http://localhost:8080/Test4Download/DownloadSource/hbwyj3D.mkv";// test download adress
+			downlowdURLAdr = "http://zhangmenshiting.baidu.com/data2/music/10554228/10554229133200.mp3?xcode=3fd6a2706cba33a772455c475bad385f";// test download adress
 		return downlowdURLAdr;
 	}
 
-	public String getTempName() {
-		if(tempName==null)
-			tempName=String.format(tempName, getDownLoadFileName());
-		return tempName;
-	}
-
-	
 	public int getThreadCount() {
 		return threadCount;
 	}
@@ -51,12 +49,13 @@ public class Download {
 	public Download() {
 		resource = new Resource(getDownlowdURLAdr());
 		connect = resource.getNewURLConnect();
-		downloadSt = new DownloadStatus();
+		downloadSt = new DownloadStatus(getDownloadLocalPath(), getDownLoadFileName());
 	}
 
 	public String getDownLoadFileName() {
 		if (downLoadFileName == null) {
-			downLoadFileName = getDownlowdURLAdr().substring(getDownlowdURLAdr().lastIndexOf("/") + 1);
+			downLoadFileName = getDownlowdURLAdr().substring(getDownlowdURLAdr().lastIndexOf("/") + 1,
+					getDownlowdURLAdr().lastIndexOf("?"));// to get down file name.
 		}
 		System.out.println(downLoadFileName);
 		return downLoadFileName;
@@ -79,6 +78,7 @@ public class Download {
 				infor.setEndIndex(tempSize * i);
 			new DownLoadProcess(infor, resource.getNewURLConnect(), downloadSt).start();
 		}
+		downloadSt.start();// Record Thread start
 	}
 
 	public static void main(String[] args) {
