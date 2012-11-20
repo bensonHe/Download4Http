@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 import org.he.dto.DonwloadInfor;
 import org.he.dto.DownLoadInforData;
+import org.he.util.ConsoleInforUtil;
 import org.he.util.DLog;
 import org.he.util.ObjectFileDataUtil;
 /**
@@ -67,7 +68,7 @@ public class DownloadStatus extends Thread {
 
 	public synchronized void notifyDownloadStatus(DonwloadInfor donwloadInfor) {
 		curSize += donwloadInfor.getBufferSize();
-		System.out.println("now have download " + (curSize * 100) / totalSize + "%");
+		ConsoleInforUtil.disPlayDownLoadStatus(curSize, totalSize);
 		if (curSize == totalSize)
 			this.isComplete = true;
 		this.isChanged = true;

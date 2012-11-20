@@ -10,12 +10,13 @@ public class DLog {
 	public static final int WARN = 2;
 	public static final int ERROR = 3;
 	public static final int FITAL = 4;
-
+	public static final int configLeve=INFOR;
 	public static void log(int level, Exception logInfor) {
+		if(level>=configLeve)
 		System.out.println(logInfor.getMessage());
 		logInfor.printStackTrace();
 	}
 	public static void log(Class clazz,String logInfor) {
-		System.out.println(clazz.getName()+":"+logInfor);
+		System.out.println("[log]"+clazz.getName()+" , "+logInfor);
 	}
 }

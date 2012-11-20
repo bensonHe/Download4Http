@@ -65,7 +65,7 @@ public class DownLoadProcess extends Thread {
 				downloadSt.notifyDownloadStatus(donwloadInfor);
 				donwFile.write(buffer);
 			}
-			System.out.println("Thread " + this.getName() + " complete");
+			DLog.log(this.getClass(),"Thread " + this.getName() + " complete");
 			donwFile.close();
 
 		} catch (Exception e) {

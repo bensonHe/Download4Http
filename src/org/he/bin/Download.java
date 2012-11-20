@@ -3,6 +3,8 @@ package org.he.bin;
 import java.net.URLConnection;
 import org.he.dto.DonwloadInfor;
 import org.he.listener.DownloadStatus;
+import org.he.util.DLog;
+import org.he.util.ResourceUtil;
 
 /**
  * @author BenSon He
@@ -12,7 +14,7 @@ import org.he.listener.DownloadStatus;
 public class Download {
 	private String downloadPath = null;
 	private String downlowdURLAdr = null;
-	private Resource resource = null;
+	private ResourceUtil resource = null;
 	private URLConnection connect = null;
 	private String downLoadFileName = null;
 	private int threadCount = 5;
@@ -30,7 +32,7 @@ public class Download {
 
 	public String getDownlowdURLAdr() {
 		if (downlowdURLAdr == null)
-			downlowdURLAdr = "http://zhangmenshiting.baidu.com/data2/music/10554228/10554229133200.mp3?xcode=3fd6a2706cba33a772455c475bad385f";// test download adress
+			downlowdURLAdr = "http://localhost:8080/Test4Download/DownloadSource/testForDownload.rar";// test download adress
 		return downlowdURLAdr;
 	}
 
@@ -42,22 +44,21 @@ public class Download {
 		this.threadCount = threadCount;
 	}
 
-	public void setDownlowdURLAdr(String downlowdURLAdr) {
+	public Download(String downlowdURLAdr) {
 		this.downlowdURLAdr = downlowdURLAdr;
-	}
-
-	public Download() {
-		resource = new Resource(getDownlowdURLAdr());
+		resource = new ResourceUtil(getDownlowdURLAdr());
 		connect = resource.getNewURLConnect();
 		downloadSt = new DownloadStatus(getDownloadLocalPath(), getDownLoadFileName());
 	}
 
 	public String getDownLoadFileName() {
 		if (downLoadFileName == null) {
-			downLoadFileName = getDownlowdURLAdr().substring(getDownlowdURLAdr().lastIndexOf("/") + 1,
-					getDownlowdURLAdr().lastIndexOf("?"));// to get down file name.
+			if (getDownlowdURLAdr().lastIndexOf("?") == -1)
+				downLoadFileName = getDownlowdURLAdr().substring(getDownlowdURLAdr().lastIndexOf("/") + 1);// to get down file name.
+			else
+				downLoadFileName = getDownlowdURLAdr().substring(getDownlowdURLAdr().lastIndexOf("/") + 1,
+						getDownlowdURLAdr().lastIndexOf("?"));// to get down file name.
 		}
-		System.out.println(downLoadFileName);
 		return downLoadFileName;
 	}
 
@@ -66,6 +67,8 @@ public class Download {
 		long tempSize = totalContentLength / threadCount; // according thread count to divide file's parts
 		long lastParts = totalContentLength % threadCount; // the last parts should be add to last thread
 		downloadSt.setTotalSize(totalContentLength);
+		DLog.log(this.getClass(), "try to download " + getDownLoadFileName() + " the file size is "
+				+ totalContentLength / 1024.00 / 1024.00 + " MB");
 		for (int i = 1; i <= threadCount; i++) {
 			DonwloadInfor infor = new DonwloadInfor();
 			infor.setTotalSize(totalContentLength); // in order to save status
@@ -82,6 +85,6 @@ public class Download {
 	}
 
 	public static void main(String[] args) {
-		new Download().startDownLoad();
+		new Download(null).startDownLoad();
 	}
 }

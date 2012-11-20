@@ -8,7 +8,8 @@ import java.net.URLConnection;
  * @since 19/11/2012
  */
 public class DonwloadInfor implements Serializable {
-	private int bufferSize = 1024 * 1024 * 5; // default value 5M
+//	private int bufferSize = 1024 * 1024 * 1; // default value 1M
+	private int bufferSize = 1024 * 50; // default value 20KB
 	private long totalSize = 0;
 	private long startIndex = 0;
 	private long endIndex = 0;
