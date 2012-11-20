@@ -8,6 +8,7 @@ import java.net.URLConnection;
 import java.util.Date;
 
 import org.he.dto.DonwloadInfor;
+import org.he.dto.DownLoadInforData;
 import org.he.listener.DownloadStatus;
 import org.he.util.DLog;
 
@@ -18,23 +19,28 @@ import org.he.util.DLog;
  */
 public class DownLoadProcess extends Thread {
 	private DonwloadInfor donwloadInfor = null;
+	private DownLoadInforData downLoadInforData = null;
 	private URLConnection connection = null;
 	private DownloadStatus downloadSt;
 	private String threadName = null;
 
-	public DownLoadProcess(DonwloadInfor donwloadInfor, URLConnection connection, DownloadStatus downloadSt) {
+	public DownLoadProcess(DownLoadInforData downLoadInforData, DonwloadInfor donwloadInfor, URLConnection connection,
+			DownloadStatus downloadSt) {
 		this.donwloadInfor = donwloadInfor;
 		this.connection = connection;
 		this.downloadSt = downloadSt;
+		this.downLoadInforData = downLoadInforData;
+		downLoadInforData.addDwonLoadInforElement(donwloadInfor);
 		if (threadName == null)
 			this.setThreadName(String.valueOf(new Date().getTime()));
 	}
+
 	@Override
 	public void run() {
 		try {
 			Thread.currentThread().setName(this.getThreadName()); // define a thread name
-			RandomAccessFile donwFile = new RandomAccessFile(new File(donwloadInfor.getDownloadFilePath()
-					+ donwloadInfor.getDownloadFileName()), "rw");
+			RandomAccessFile donwFile = new RandomAccessFile(new File(downLoadInforData.getDownLoadFilePath()
+					+ downLoadInforData.getDownLoadFileName()), "rw");
 			donwFile.seek(donwloadInfor.getStartIndex());
 			connection.setRequestProperty("Range", "bytes=" + donwloadInfor.getStartIndex() + "-"
 					+ donwloadInfor.getEndIndex());
@@ -65,7 +71,7 @@ public class DownLoadProcess extends Thread {
 				downloadSt.notifyDownloadStatus(donwloadInfor);
 				donwFile.write(buffer);
 			}
-			DLog.log(this.getClass(),"Thread " + this.getName() + " complete");
+			DLog.log(this.getClass(), "Thread " + this.getName() + " complete");
 			donwFile.close();
 
 		} catch (Exception e) {

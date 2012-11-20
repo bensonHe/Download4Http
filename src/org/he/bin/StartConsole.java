@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import org.he.dto.DownLoadInforData;
+
 public class StartConsole {
 	public static void main(String[] args) throws Exception {
 		StartConsole console=new StartConsole();
@@ -32,7 +34,7 @@ public class StartConsole {
 			break;
 		}
 	}
-	private Download download;
+	private NewDownload download;
 	private BufferedReader rd;
 	public StartConsole(){
 		rd=new BufferedReader(new InputStreamReader(System.in));
@@ -43,8 +45,12 @@ public class StartConsole {
 		//Verification URL adress.
 		if("".equals(redline))
 			DownloadNewTask();
-		download=new Download(redline);
-		download.startDownLoad();
+		DownLoadInforData downLoadInforData=new DownLoadInforData();
+		downLoadInforData.setDownlowdURLAdr(redline);
+		System.out.println("please input your save path (like as 'D:/Download/') :");
+		redline=rd.readLine();
+		downLoadInforData.setDownLoadFilePath(redline);
+		new NewDownload(downLoadInforData,5).startDownLoad();
 	}
 	private void DownloadContinueTask(){
 		

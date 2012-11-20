@@ -18,19 +18,11 @@ public class DownloadStatus extends Thread {
 	private boolean isChanged = false;
 	private boolean isComplete = false;
 	private DownLoadInforData downLoadInforData;
-	private String downLoadFileName;
-	private String tempFilePath;
 
-	public DownloadStatus(String tempFilePath, String downLoadFileName) {
-		downLoadInforData = new DownLoadInforData();
-		this.tempFilePath = tempFilePath;
-		this.downLoadFileName = downLoadFileName;
+	public DownloadStatus(DownLoadInforData downLoadInforData) {
+		this.downLoadInforData = downLoadInforData;
 	}
-
-	public void addElements(DonwloadInfor donwloadInfor) {
-		downLoadInforData.addDwonLoadInforElement(donwloadInfor);
-	}
-
+	
 	public void removeCurElement() {
 		downLoadInforData.removeCurDwonLoadInforElement();
 	}
@@ -60,8 +52,8 @@ public class DownloadStatus extends Thread {
 	}
 
 	public String getTempFileName() {
-		StringBuffer tempFile = new StringBuffer(tempFilePath);
-		tempFile.append(downLoadFileName);
+		StringBuffer tempFile = new StringBuffer(downLoadInforData.getDownLoadFilePath());
+		tempFile.append(downLoadInforData.getDownLoadFileName());
 		tempFile.append(".temp");// temp file name type
 		return tempFile.toString();
 	}

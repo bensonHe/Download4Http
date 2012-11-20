@@ -13,8 +13,6 @@ public class DonwloadInfor implements Serializable {
 	private long totalSize = 0;
 	private long startIndex = 0;
 	private long endIndex = 0;
-	private String downloadFilePath = null;
-	private String downloadFileName = null;
 	public long getEndIndex() {
 		return endIndex;
 	}
@@ -45,23 +43,6 @@ public class DonwloadInfor implements Serializable {
 
 	public void setStartIndex(long startIndex) {
 		this.startIndex = startIndex;
-	}
-
-	public String getDownloadFilePath() {
-		return downloadFilePath;
-	}
-
-	public void setDownloadFilePath(String downloadFilePath) {
-		this.downloadFilePath = downloadFilePath;
-	}
-
-
-	public String getDownloadFileName() {
-		return downloadFileName;
-	}
-
-	public void setDownloadFileName(String downloadFileName) {
-		this.downloadFileName = downloadFileName;
 	}
 
 }
