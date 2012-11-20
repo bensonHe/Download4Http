@@ -1,55 +1,56 @@
 Download4Http
 =============
 
-it is a download software.I try to coding it  use java. now have finnish like below
+it is a download software.I try to coding it  use java. now have finnish like below<br>
 
-1. support divide download file to be many parts . muti-thread to download it.
-2. support pause download and recovery download 
-3. support show download schedule,speed,and reconnect.
+1. support divide download file to be many parts . muti-thread to download it.<br>
+2. support pause download and recovery download <br>
+3. support show download schedule,speed,and reconnect.<br>
 
-next  step 
+next  step <br>
 
-add ui(maybe swing) to support.
+add ui(maybe swing) to support.<br>
 
-welcome everyone to join us.now developer is just one(me) ,haha
+welcome everyone to join us.now developer is just one(me) ,haha<br>
 
 
-test project step
-1. create a folder "Download" under your disk D.  D:\Download
-2. run org.he.bin.Download main method
-if you have success to run this project .some log will be output in console like below.
+<b>test project step</b><br>
 
-and in you D:\Download will have a MP3 file what name is10554229133200.mp3 
-============
-10554229133200.mp3
-10554229133200.mp3
-10554229133200.mp3
-10554229133200.mp3
-10554229133200.mp3
-10554229133200.mp3
-org.he.util.ObjectFileDataUtil:the temp file is D://Download//10554229133200.mp3.temp
-now have download 19%
-Thread 1353253836132 complete
-now have download 39%
-Thread 1353253836132 complete
-now have download 60%
-Thread 1353253836132 complete
-now have download 80%
-Thread 1353253836132 complete
-now have download 100%
-Thread 1353253836132 complete
-==================================
+1. create a folder "Download" under your disk D.  D:\Download<br>
+2. run org.he.bin.Download main method<br>
 
-I hope this program will be useful . so I will try to complete it step by step.
+if you have success to run this project .some log will be output in console like below.<br>
 
-of course . welcome everyone to join code this program and push it. 
+10554229133200.mp3<br>
+10554229133200.mp3<br>
+10554229133200.mp3<br>
+10554229133200.mp3<br>
+10554229133200.mp3<br>
+10554229133200.mp3<br>
+org.he.util.ObjectFileDataUtil:the temp file is D://Download//10554229133200.mp3.temp<br>
+now have download 19%<br>
+Thread 1353253836132 complete<br>
+now have download 39%<br>
+Thread 1353253836132 complete<br>
+now have download 60%<br>
+Thread 1353253836132 complete<br>
+now have download 80%<br>
+Thread 1353253836132 complete<br>
+now have download 100%<br>
+Thread 1353253836132 complete<br>
 
-if have any question. please connect to me .
+and in you D:\Download will have a MP3 file what name is10554229133200.mp3 <br>
 
-thanks very much
+I hope this program will be useful . so I will try to complete it step by step.<br>
 
-benson he (ºÎ½õ±ò)
+of course . welcome everyone to join code this program and push it. <br>
 
-email, qing878@gmail.com
-QQ, 277803242
-skype, qing878
+if have any question. please connect to me .<br>
+
+thanks very much<br>
+
+benson he (ä½•é”¦å½¬)<br>
+
+email, qing878@gmail.com<br>
+QQ, 277803242<br>
+skype, qing878<br>
