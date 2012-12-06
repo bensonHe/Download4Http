@@ -78,6 +78,7 @@ public class DownloadStatus extends Thread {
 		while (!this.isComplete) {
 			if (this.isChanged) {
 				objectFileDataUtil.writeObjectToFile(downLoadInforData);
+				this.isChanged=false;
 			}
 		}
 		objectFileDataUtil.removeDataFile();

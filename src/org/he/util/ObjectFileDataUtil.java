@@ -54,7 +54,9 @@ public class ObjectFileDataUtil {
 		Object object = null;
 		try {
 			objInFile = new ObjectInputStream(new FileInputStream(file));
+			System.out.println(objInFile);
 			object = objInFile.readObject();
+			System.out.println("object="+object);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			DLog.log(DLog.ERROR, e);
@@ -79,7 +81,8 @@ public class ObjectFileDataUtil {
 		file.delete();
 	}
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		ObjectInputStream obj=new ObjectInputStream(new FileInputStream("D:\\Download4Http\\hbwyj3D.mkv.temp"));
+		obj.readObject();
 	}
 }

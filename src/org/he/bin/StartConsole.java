@@ -34,7 +34,6 @@ public class StartConsole {
 			break;
 		}
 	}
-	private NewDownload download;
 	private BufferedReader rd;
 	public StartConsole(){
 		rd=new BufferedReader(new InputStreamReader(System.in));
@@ -50,9 +49,9 @@ public class StartConsole {
 		System.out.println("please input your save path (like as 'D:/Download/') :");
 		redline=rd.readLine();
 		downLoadInforData.setDownLoadFilePath(redline);
-		new NewDownload(downLoadInforData,5).startDownLoad();
 	}
 	private void DownloadContinueTask(){
+		
 		
 	}
 }

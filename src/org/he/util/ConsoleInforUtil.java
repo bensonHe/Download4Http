@@ -15,6 +15,6 @@ public class ConsoleInforUtil {
 		for(int i=0;i<inforDisplay.length();i++){
 			backspace.append("\b");
 		}
-		System.out.print(backspace.toString()+inforDisplay.toString());
+//		System.out.print(backspace.toString()+inforDisplay.toString());
 	}
 }
